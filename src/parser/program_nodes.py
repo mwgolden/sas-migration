@@ -12,6 +12,7 @@ class Libname(Node):
     libref: str
     engine: str = "BASE"
     path: Optional[Path] = None
+    options: Optional[dict] = None
 
 @dataclass
 class DataStep(Node):
