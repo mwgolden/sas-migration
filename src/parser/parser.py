@@ -1,6 +1,7 @@
-from splitter import ProgramUnit
-from program_nodes import SASProgram
-import program_parsers as p
+from .splitter import splitter, ProgramUnit
+from .program_nodes import SASProgram
+from pathlib import Path
+import parser.program_parsers as p
 
 from typing import List
 
@@ -17,10 +18,17 @@ def parse_program(program_units: List[ProgramUnit]):
     for unit in program_units:
         parser = PROGRAM_PARSERS.get(
             unit.classification,
-            parse_unknown = lambda x: x
+            lambda x: x
         )
 
         node = parser(unit.unit)
         sas_program.statements.append(node)
 
     return sas_program
+
+def parse(path: Path) -> SASProgram:
+    with open(path, 'r') as f:
+        lines = f.readlines()
+        units = splitter(lines)
+        sas_program = parse_program(units)
+        return sas_program

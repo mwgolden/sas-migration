@@ -1,8 +1,9 @@
+from .splitter import ProgramUnit
 
-def parse_libname(): pass
+def parse_libname(unit: ProgramUnit): pass
 
-def parse_data_step(): pass
+def parse_data_step(unit: ProgramUnit): pass
 
-def parse_proc_sql(): pass
+def parse_proc_sql(unit: ProgramUnit): pass
 
-def parse_proc_sort(): pass
+def parse_proc_sort(unit: ProgramUnit): pass

@@ -11,33 +11,33 @@ class Node:
 class Libname(Node):
     libref: str
     engine: str = "BASE"
-    path: Optional[Path]
+    path: Optional[Path] = None
 
 @dataclass
 class DataStep(Node):
-    inputs: List[str] = field(default_factory=List)
-    outputs: List[str] = field(default_factory=List)
-    transformations: List[str] = field(default_factory=List)
+    inputs: List[str] = field(default_factory=list)
+    outputs: List[str] = field(default_factory=list)
+    transformations: List[str] = field(default_factory=list)
 
 @dataclass
 class ProcSort(Node):
-    inputs: List[str] = field(default_factory=List)
-    outputs: List[str] = field(default_factory=List)
-    by: List[str] = field(default_factory=List)
+    inputs: List[str] = field(default_factory=list)
+    outputs: List[str] = field(default_factory=list)
+    by: List[str] = field(default_factory=list)
 
 @dataclass
 class ProcSql(Node):
-    tables: List[str] = field(default_factory=List)
-    joins: List[str] = field(default_factory=List)
-    group_by: List[str] = field(default_factory=List)
+    tables: List[str] = field(default_factory=list)
+    joins: List[str] = field(default_factory=list)
+    group_by: List[str] = field(default_factory=list)
 
 
 @dataclass
 class Macro(Node):
     name: str
-    parameters: List[str] = field(default_factory=List)
+    parameters: List[str] = field(default_factory=list)
 
 
 @dataclass
 class SASProgram:
-    statements: List[Node] = field(default_factory=List)
+    statements: List[Node] = field(default_factory=list)
