@@ -1,0 +1,8 @@
+langchain==1.0.3
+langchain-google-genai==3.0.1
+python-dotenv==1.2.1
+pypdf
+langchain-huggingface
+sentence-transformers
+langchain-community
+qdrant-client
